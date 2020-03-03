@@ -9,6 +9,8 @@ public class CameraMovement : MonoBehaviour
     public GameObject Player;
     float yPosition; //kameros y pozicija
 
+    float fingerPressedY; // y koordinate, kur pirstas prisiliete prie ekrano
+
     [Range(0,50)]
     public float strenght = 10;
 
@@ -31,6 +33,12 @@ public class CameraMovement : MonoBehaviour
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began)
+            {
+                var test = Camera.main.ScreenToWorldPoint(touch.position).y;
+                
+                fingerPressedY = Player.transform.position.y - Camera.main.ScreenToWorldPoint(touch.position).y;
+            }
             float pressedPos;
             if (touch.position.y > Screen.height / 2) // virsus
                 pressedPos = (Screen.height / 2 - touch.position.y) / Screen.height * strenght - (touch.position.y / Screen.height * strenght) / 2;
@@ -38,14 +46,15 @@ public class CameraMovement : MonoBehaviour
                 pressedPos = (Screen.height / 2 - touch.position.y) / Screen.height * strenght - (touch.position.y / Screen.height * strenght) / 2;
             float skirtumas = pressedPos - yPosition;
             //Debug.Log("Skirtumas = " + skirtumas);
-            yPosition = (float)(yPosition + skirtumas * getSpeed);
+            yPosition = (float)(yPosition + skirtumas * getSpeed) * -1;
+            yPosition += fingerPressedY * 0.8f;
             //if (skirtumas > 0 && Mathf.Abs(pressedPos) > Mathf.Abs(yPosition))
             //    yPosition = (float)(yPosition - pressedPos * 0.3);
             //if (skirtumas < 0 && Mathf.Abs(pressedPos) > Mathf.Abs(yPosition))
             //{
             //    //yPosition = (float)(yPosition - pressedPos * 0.3);
             //}
-            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition * -1, -10); // ATIMTI POZICIJA KURIA GAUSI IS RAY
+            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition, -10); // ATIMTI POZICIJA KURIA GAUSI IS RAY
             //Debug.Log("Max pozicija : " + Screen.height + "Paliesta pozicija : " + touch.position.y / Screen.height);
         }
         else if (Mathf.Abs(gameObject.transform.position.y - Player.transform.position.y) > 0.02)
@@ -58,12 +67,12 @@ public class CameraMovement : MonoBehaviour
                 yPosition = (float)(yPosition - yPosition * returnSpeed);
             }
 
-            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition * -1, -10);
+            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition, -10);
         }
         else
         {
             yPosition = Player.transform.position.x;
-            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition * -1, -10);
+            gameObject.transform.position = new Vector3(Player.transform.position.x, yPosition, -10);
         }
         //Debug.Log(Player.transform.position.y);
         Vector3 laikinas = Player.transform.position;
