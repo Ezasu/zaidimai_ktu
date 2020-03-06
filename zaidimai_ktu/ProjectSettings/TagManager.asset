@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 854288791
     locked: 0
+  - name: Background paralax
+    uniqueID: 3785723217
+    locked: 0
   - name: Level
     uniqueID: 1731547661
     locked: 0
