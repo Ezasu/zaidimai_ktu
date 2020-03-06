@@ -29,7 +29,7 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class CameraMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(laikinas, Vector3.down);
         float distance = Player.transform.position.y - hit.point.y - 1.8348f;
         //Ray ray = new Ray(Player.transform.position, Vector3.down);
-        //Debug.Log(distance);
+        Debug.Log(hit.point.y);
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
@@ -59,7 +59,7 @@ public class CameraMovement : MonoBehaviour
             scrolledY = scrolledY / 100 * strenght;
             scrolledY = scrolledY - scrolledY / 2;
             Debug.Log(scrolledY);
-            gameObject.transform.position = new Vector3(Player.transform.position.x, scrolledY, -10);
+            gameObject.transform.position = new Vector3(Player.transform.position.x, scrolledY + hit.point.y, -10);
             //float pressedPos;
             //pressedPos = (Screen.height / 2 - touch.position.y) / Screen.height * strenght - (touch.position.y / Screen.height * strenght) / 2;
             //float skirtumas = pressedPos - yPosition;
@@ -83,7 +83,7 @@ public class CameraMovement : MonoBehaviour
             //yPosition = (float)(yPosition - yPosition * returnSpeed);
             scrolledY = (float)(scrolledY - scrolledY * returnSpeed);
             touchBeganAt = 0;
-            gameObject.transform.position = new Vector3(Player.transform.position.x, scrolledY, -10);
+            gameObject.transform.position = new Vector3(Player.transform.position.x, scrolledY + hit.point.y, -10);
         }
         //else
         //{
