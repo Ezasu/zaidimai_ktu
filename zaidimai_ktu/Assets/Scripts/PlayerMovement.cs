@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     float scrollSpeedX, scrollSpeedY;
 
+    public string playerScoreString = "Score: 0";
+    int score;
+
     int directionX, directionY;
 
     [Range(0, 50)]
@@ -24,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         scrollSpeedX = 0;
         scrollSpeedY = 0;
+        score = 0;
+    }
+
+    private void OnGUI()
+    {
+        playerScoreString = GUI.TextField(new Rect(10, 10, 200, 40), $"Score: {score}", 25);
     }
 
     // Update is called once per frame
@@ -74,5 +83,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (transform.position.y < -2)
             transform.position = Vector2.zero;
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.tag == "PowerUp")
+            score++;
     }
 }
