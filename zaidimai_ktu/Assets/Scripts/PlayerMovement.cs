@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.touchCount == 1)
         {
             var touch = Input.GetTouch(0);
-            rb.AddForce(touch.deltaPosition * -1);
+            rb.AddForce(touch.deltaPosition * -1 * SpeedMultiplier);
         }
         else if (Input.touchCount == 0)
         {
