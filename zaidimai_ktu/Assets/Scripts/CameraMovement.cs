@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
     float yPosition; //kameros y pozicija
     float fingerPressedY; // y koordinate, kur pirstas prisiliete prie ekrano
 
-    float strenght = 4.7f;
+    float strenght = 5f;
 
     [Range(0, 20)]
     public float playerSize = 20f;
@@ -25,6 +25,7 @@ public class CameraMovement : MonoBehaviour
     float touchBeganAt = 0;
     float camBeganAt = 0;
     float scrolledY = 0;
+    float desiredPos = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -37,31 +38,26 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 laikinas = Player.transform.position;
         laikinas.x = laikinas.x + 1;
-        laikinas.y = laikinas.y;
         RaycastHit2D hit = Physics2D.Raycast(laikinas, Vector3.down);
-        float distance = Player.transform.position.y - hit.point.y - 1.8348f;
-        //Debug.Log(hit.point.y);
+        float distance = Player.transform.position.y - hit.point.y;
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began)
             {
                 touchBeganAt = touch.position.y;
-                camBeganAt = gameObject.transform.position.y;
             }
-            scrolledY = touch.position.y - touchBeganAt - playerSize + gameObject.transform.position.y / 2;
+            scrolledY = touch.position.y - touchBeganAt;
             scrolledY = scrolledY / 100 * strenght; // kameros keliavimo greitis
-            scrolledY = scrolledY - scrolledY / 2; // - camBeganAt
-            Debug.Log(camBeganAt);
+            desiredPos = hit.point.y + scrolledY;
         }
         else
         {
-            scrolledY = (float)(scrolledY - scrolledY * returnSpeed);
+            desiredPos = hit.point.y;
             touchBeganAt = 0;
         }
-        camBeganAt = gameObject.transform.position.y * 0.8f;
-        camBeganAt = 0;
-        gameObject.transform.position = new Vector3(Player.transform.position.x, scrolledY + hit.point.y + camBeganAt, -10);
-        //Debug.Log(gameObject.transform.position.y);
+        var skirtumas = gameObject.transform.position.y - desiredPos;
+        var pokytis = gameObject.transform.position.y - (skirtumas * 0.1f);
+        gameObject.transform.position = new Vector3(Player.transform.position.x, pokytis, - 10);
     }
 }
