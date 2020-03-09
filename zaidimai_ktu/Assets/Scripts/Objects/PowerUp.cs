@@ -11,13 +11,19 @@ public class PowerUp : MonoBehaviour
     public float MaximumBounce = 1f;
 
     float currentPos;
+    float startPos;
 
 
     int bounceDirection = 1;
+    private void Awake()
+    {
+        currentPos = gameObject.transform.position.y;
+        startPos = currentPos;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        currentPos = gameObject.transform.position.y;
+        
     }
 
     // Update is called once per frame
@@ -25,9 +31,8 @@ public class PowerUp : MonoBehaviour
     {
         gameObject.transform.Rotate(0, 0, 1);
         currentPos += BouncingDelta * bounceDirection;
-        if (Mathf.Abs(currentPos) > MaximumBounce)
+        if (Mathf.Abs(startPos - currentPos) > MaximumBounce)
         {
-            currentPos = MaximumBounce * bounceDirection;
             bounceDirection *= -1;
         }
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.y);
