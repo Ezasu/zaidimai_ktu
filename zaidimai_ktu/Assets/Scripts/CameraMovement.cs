@@ -23,9 +23,9 @@ public class CameraMovement : MonoBehaviour
     public float getSpeed = 0.5f;
 
     float touchBeganAt = 0;
-    float camBeganAt = 0;
     float scrolledY = 0;
     float desiredPos = 0;
+    float rayPos = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +39,9 @@ public class CameraMovement : MonoBehaviour
         Vector3 laikinas = Player.transform.position;
         laikinas.x = laikinas.x + 1;
         RaycastHit2D hit = Physics2D.Raycast(laikinas, Vector3.down);
-        float distance = Player.transform.position.y - hit.point.y;
+        if(hit.point.y != 0)
+            rayPos = hit.point.y;
+        float distance = Player.transform.position.y - rayPos;
         if (Input.touchCount > 0)
         {
             var touch = Input.GetTouch(0);
@@ -49,15 +51,15 @@ public class CameraMovement : MonoBehaviour
             }
             scrolledY = touch.position.y - touchBeganAt;
             scrolledY = scrolledY / 100 * strenght; // kameros keliavimo greitis
-            desiredPos = hit.point.y + scrolledY;
+            desiredPos = rayPos + scrolledY;
         }
         else
         {
-            desiredPos = hit.point.y;
+            desiredPos = rayPos;
             touchBeganAt = 0;
         }
         var skirtumas = gameObject.transform.position.y - desiredPos;
         var pokytis = gameObject.transform.position.y - (skirtumas * 0.1f);
-        gameObject.transform.position = new Vector3(Player.transform.position.x, pokytis, - 10);
+        gameObject.transform.position = new Vector3(Player.transform.position.x, pokytis + 0.5f, - 10);
     }
 }

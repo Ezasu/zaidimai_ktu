@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    float scrollSpeedX, scrollSpeedY;
-
     Vector2 beganTouch;
     Vector2 lastTouch;
     Vector2 scrollSpeed;
@@ -34,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        scrollSpeedX = 0;
-        scrollSpeedY = 0;
         score = 0;
     }
 
