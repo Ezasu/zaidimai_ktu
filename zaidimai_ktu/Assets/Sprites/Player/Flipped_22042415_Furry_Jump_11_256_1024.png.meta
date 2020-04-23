@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 8e57292b0eb87264ebb3ba8f99b24c6f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1170312598934679979
+    second: Flipped_22042415_Furry_Jump_11_256_1024_0
+  - first:
+      213: -3520170782580970623
+    second: Flipped_22042415_Furry_Jump_11_256_1024_1
+  - first:
+      213: 1364364103556221861
+    second: Flipped_22042415_Furry_Jump_11_256_1024_2
+  - first:
+      213: -2166932259567272316
+    second: Flipped_22042415_Furry_Jump_11_256_1024_3
+  - first:
+      213: -4316955399769415646
+    second: Flipped_22042415_Furry_Jump_11_256_1024_4
+  - first:
+      213: 6344890214959217083
+    second: Flipped_22042415_Furry_Jump_11_256_1024_5
+  - first:
+      213: 2146926585282933346
+    second: Flipped_22042415_Furry_Jump_11_256_1024_6
+  - first:
+      213: 9031715194308175363
+    second: Flipped_22042415_Furry_Jump_11_256_1024_7
+  - first:
+      213: -8560776969482408421
+    second: Flipped_22042415_Furry_Jump_11_256_1024_8
+  - first:
+      213: 4616384260390618685
+    second: Flipped_22042415_Furry_Jump_11_256_1024_9
+  - first:
+      213: -385510649603772881
+    second: Flipped_22042415_Furry_Jump_11_256_1024_10
+  - first:
+      213: 5653683513661197939
+    second: Flipped_22042415_Furry_Jump_11_256_1024_11
+  - first:
+      213: 2600910253195617618
+    second: Flipped_22042415_Furry_Jump_11_256_1024_12
+  - first:
+      213: 2101896889844773081
+    second: Flipped_22042415_Furry_Jump_11_256_1024_13
+  - first:
+      213: -8086395927327877156
+    second: Flipped_22042415_Furry_Jump_11_256_1024_14
+  - first:
+      213: 2434157433471515647
+    second: Flipped_22042415_Furry_Jump_11_256_1024_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_0
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 810
+        width: 171
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e855054e632cfe0800000000000000
+      internalID: -1170312598934679979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 808
+        width: 167
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b6d8be257d52fc0800000000000000
+      internalID: -3520170782580970623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_2
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 808
+        width: 169
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab43c86ce13fe210800000000000000
+      internalID: 1364364103556221861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_3
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 808
+        width: 169
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48e782047928de1e0800000000000000
+      internalID: -2166932259567272316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 565
+        width: 148
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2202a85afe71714c0800000000000000
+      internalID: -4316955399769415646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_5
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 558
+        width: 148
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9fe79a8049d0850800000000000000
+      internalID: 6344890214959217083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_6
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 557
+        width: 149
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262b1aaba5a6bcd10800000000000000
+      internalID: 2146926585282933346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_7
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 554
+        width: 161
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306ac3dfd19175d70800000000000000
+      internalID: 9031715194308175363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 321
+        width: 159
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ee7a404b2023980800000000000000
+      internalID: -8560776969482408421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_9
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 338
+        width: 153
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d368943b601b01040800000000000000
+      internalID: 4616384260390618685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_10
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 343
+        width: 151
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2eac315b1466aaf0800000000000000
+      internalID: -385510649603772881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_11
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 338
+        width: 159
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e0240833be57e40800000000000000
+      internalID: 5653683513661197939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 55
+        width: 152
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2556566581a481420800000000000000
+      internalID: 2600910253195617618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_13
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 53
+        width: 158
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d032b1c5107b2d10800000000000000
+      internalID: 2101896889844773081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_14
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 55
+        width: 155
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd7d4766fb957cf80800000000000000
+      internalID: -8086395927327877156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flipped_22042415_Furry_Jump_11_256_1024_15
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 66
+        width: 162
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb327df94dd7c120800000000000000
+      internalID: 2434157433471515647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
