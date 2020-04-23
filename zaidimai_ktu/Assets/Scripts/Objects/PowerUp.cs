@@ -10,6 +10,9 @@ public class PowerUp : MonoBehaviour
     [Range(0, 20)]
     public float MaximumBounce = 1f;
 
+    public AudioClip sound;
+    public AudioSource source;
+
     float currentPos;
     float startPos;
 
@@ -23,7 +26,7 @@ public class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,15 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Player")
-            Destroy(gameObject);
+        {
+            source.PlayOneShot(sound, 1f);
+            currentPos = -100;
+            Invoke("RemoveObject", 10);
+        }
+
+    }
+    private void RemoveObject()
+    {
+        Destroy(gameObject);
     }
 }
