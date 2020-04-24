@@ -7,19 +7,27 @@ public class PlayerMovement : MonoBehaviour
 {
     public class Buffer
     {
-        public float[] Bufferis;
+        public Vector2[] Bufferis;
         int Current;
 
         public Buffer(int size)
         {
-            Bufferis = (new float[size]).Select(e => (float)0).ToArray();
+            Bufferis = (new Vector2[size]).Select(e => Vector2.zero).ToArray();//(new float[size]).Select(e => 0f).ToArray();
             Current = 0;
         }
 
-        public void Push(float value)
+        public void Push(Vector2 value)
         {
             Bufferis[Current] = value;
             Current = Current >= Bufferis.Length - 1 ? 0 : Current + 1;
+        }
+
+        public Vector2 LastValue(int index = 0)
+        {
+            if (index > Bufferis.Length)
+                index = 0;
+            var _index = Current - 1 - index < 0 ? Bufferis.Length - 1 - index : Current - 1 - index;
+            return Bufferis[_index];
         }
     }
 
@@ -34,9 +42,10 @@ public class PlayerMovement : MonoBehaviour
     public string playerScoreString = "Score: 0";
     int score;
 
-    bool onGround, ascending, facingLeft, walking;
+    bool onGround, ascending, facingLeft, walking,
+        onSlipperyPlatform;
 
-    Buffer lastVerticalVelocity = new Buffer(5);
+    Buffer lastVelocity = new Buffer(5);
 
     int directionX, directionY;
 
@@ -52,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 10)]
     public float animationRequiredWalkingSpeed = 0.7f;
 
+    [Range(0, 25)]
+    public float BouncyPlatformBounciness = 3.5f;
+
+    [Range(0, 500)]
+    public float SlipperyPlatformSlipperiness = 200f;
 
 
 
@@ -112,25 +126,26 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.touchCount == 0)
         {
-            rb.velocity *= 1 - (slowDownMultiplier);
+            var slowDown = slowDownMultiplier / (onSlipperyPlatform ? SlipperyPlatformSlipperiness : 1);
+            rb.velocity *= 1 - (slowDown);
         }
 
 
         ascending = rb.velocity.y > 0;
 
 
-        lastVerticalVelocity.Push(rb.velocity.y);
+        lastVelocity.Push(rb.velocity);
 
-        if (lastVerticalVelocity.Bufferis.All(e => e == 0))
+        if (lastVelocity.Bufferis.Select(e => e.y).All(e => e == 0))
             onGround = false;
 
         walking = Mathf.Abs(rb.velocity.x) >= animationRequiredWalkingSpeed;
 
 
-
-        //if (!onGround)
-        //{
-        //    anim.SetBool("JumpingUp", rb.velocity.y > 0);
+        {
+            //if (!onGround)
+            //{
+            //    anim.SetBool("JumpingUp", rb.velocity.y > 0);
 
             //}
 
@@ -181,15 +196,16 @@ public class PlayerMovement : MonoBehaviour
 
             //if (transform.position.y < -2)
             //    transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-
+        }
     }
 
-    //public void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D coll)
     //{
-    //    if (collision.gameObject.tag == "Level")
+    //    switch (coll.gameObject.tag)
     //    {
-            
-    //        anim.SetBool("IsAirbone", false);
+    //        case "Level_bouncy":
+    //            rb.velocity = new Vector2(rb.velocity.x, lastVelocity.LastValue() * -2);
+    //            break;
     //    }
     //}
 
@@ -219,35 +235,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //void GroundCheck()
-    //{
-    //    var grounded = IsGrounded("Level");
-    //    if (onGround != grounded)
-    //    {
-    //        anim.SetBool("OnGround", grounded);
-    //        anim.SetBool("JumpingUp", !grounded);
-    //        onGround = grounded;
-    //    }
-    //    else if (!grounded && rb.velocity.y <= 0)
-    //    {
-    //        anim.SetBool("JumpingUp", false);
-    //    }
-            
-    //}
-
-    void ChangeState(bool landed)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        var obj = collision.collider.gameObject;
+        if (obj.tag == "Level")
+        {
+            if (obj.name.StartsWith("Slippery"))
+            {
+                onSlipperyPlatform = true;
+            }
+            else if (obj.name.StartsWith("Bouncy"))
+            {
+                rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
+            }
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        var obj = collision.collider.gameObject;
+        if (obj.tag == "Level")
+        {
+            if (obj.name.StartsWith("Slippery"))
+            {
+                onSlipperyPlatform = false;
+            }
+        }
     }
 
 
-    //public void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Level")
-    //    {
-    //        anim.SetBool("IsAirbone", true);
-    //    }
-    //}
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
