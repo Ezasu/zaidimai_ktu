@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpExplosion : MonoBehaviour
+public class Finish : MonoBehaviour
 {
+    public Transform firework;
+
     [Range(0, 15)]
     public float BouncingDelta = 0.05f;
 
@@ -26,33 +28,27 @@ public class PowerUpExplosion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        firework.GetComponent<ParticleSystem>().enableEmission = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        gameObject.transform.Rotate(0, 0, 1);
-        currentPos += BouncingDelta * bounceDirection;
-        if (Mathf.Abs(startPos - currentPos) > MaximumBounce)
-        {
-            bounceDirection *= -1;
-        }
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.y);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Player")
         {
-            source.PlayOneShot(sound, 1f);
-            currentPos = -100;
-            Invoke("RemoveObject", 10);
+            firework.GetComponent<ParticleSystem>().enableEmission = true;
+            Destroy(gameObject);
+            Invoke("RemoveObject", 0);
         }
 
     }
     private void RemoveObject()
     {
-        Destroy(gameObject);
+       
     }
 }

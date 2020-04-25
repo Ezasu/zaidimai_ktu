@@ -267,6 +267,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
+        if (coll.tag == "Level" && coll.name == "Finish Flag")
+            score += 100;
         if (coll.tag == "PowerUp")
             score++;
         else if (coll.tag == "Level" && coll.name == "Death_Teleport")
