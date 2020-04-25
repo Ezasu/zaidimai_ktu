@@ -10,11 +10,9 @@ public class CameraMovement : MonoBehaviour
     public GameObject Player;
     float yPosition; //kameros y pozicija
     float fingerPressedY; // y koordinate, kur pirstas prisiliete prie ekrano
-
-    float strenght = 5f;
-
-    [Range(0, 20)]
-    public float playerSize = 20f;
+    
+    [Range(1f, 10f)]
+    public float strenght = 5f;
 
     [Range(0, 0.5f)]
     public float returnSpeed = 0.4f;
