@@ -1,0 +1,511 @@
+fileFormatVersion: 2
+guid: 1bd874bc4485c914997c37539ce469c0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6912520450528829874
+    second: flame_wheel_clear_0
+  - first:
+      213: 6341836670793257467
+    second: flame_wheel_clear_1
+  - first:
+      213: 8238966098065556763
+    second: flame_wheel_clear_2
+  - first:
+      213: -2371178364822195653
+    second: flame_wheel_clear_3
+  - first:
+      213: 557023235529481261
+    second: flame_wheel_clear_4
+  - first:
+      213: 8169793464626746044
+    second: flame_wheel_clear_5
+  - first:
+      213: -2751761170872035429
+    second: flame_wheel_clear_6
+  - first:
+      213: -7670891139954724289
+    second: flame_wheel_clear_7
+  - first:
+      213: -7911739648846842776
+    second: flame_wheel_clear_8
+  - first:
+      213: -9119859439788843093
+    second: flame_wheel_clear_9
+  - first:
+      213: 1551438130018212649
+    second: flame_wheel_clear_10
+  - first:
+      213: 3730734035531200676
+    second: flame_wheel_clear_11
+  - first:
+      213: 1121863286607647062
+    second: flame_wheel_clear_12
+  - first:
+      213: 300532978772987995
+    second: flame_wheel_clear_13
+  - first:
+      213: 5417073262795300162
+    second: flame_wheel_clear_14
+  - first:
+      213: -8146207476768114934
+    second: flame_wheel_clear_15
+  - first:
+      213: -2638449964964939600
+    second: flame_wheel_clear_16
+  - first:
+      213: 5608084852736765489
+    second: flame_wheel_clear_17
+  - first:
+      213: -4885436770221520468
+    second: flame_wheel_clear_18
+  - first:
+      213: -4992938570931889614
+    second: flame_wheel_clear_19
+  - first:
+      213: -2939605235264024926
+    second: flame_wheel_clear_20
+  - first:
+      213: -4893184457632335900
+    second: flame_wheel_clear_21
+  - first:
+      213: -2018366314479942158
+    second: flame_wheel_clear_22
+  - first:
+      213: -2139007891994064952
+    second: flame_wheel_clear_23
+  - first:
+      213: 7492088272534947764
+    second: flame_wheel_clear_24
+  - first:
+      213: -72201502399500407
+    second: flame_wheel_clear_25
+  - first:
+      213: 6895526719972412013
+    second: flame_wheel_clear_26
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: flame_wheel_clear_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 108
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e1b9b364bc110a0800000000000000
+      internalID: -6912520450528829874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 100
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf19d220adab20850800000000000000
+      internalID: 6341836670793257467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 106
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b150fa7a300b65270800000000000000
+      internalID: 8238966098065556763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_3
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 106
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b327ea917d1e71fd0800000000000000
+      internalID: -2371178364822195653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_4
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 105
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c9f557ea1fab700800000000000000
+      internalID: 557023235529481261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_5
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 105
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb29263eedfe06170800000000000000
+      internalID: 8169793464626746044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 105
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9795776bc7cfc9d0800000000000000
+      internalID: -2751761170872035429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_7
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 105
+        width: 78
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32be4c76258b8590800000000000000
+      internalID: -7670891139954724289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_8
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8643c1325bad33290800000000000000
+      internalID: -7911739648846842776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf94e99820cf6180800000000000000
+      internalID: -9119859439788843093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_10
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 3
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b5bb662c0d78510800000000000000
+      internalID: 1551438130018212649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_11
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 5
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a8fb4bc6da36c330800000000000000
+      internalID: 3730734035531200676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_12
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 4
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6511dcc17b8a19f00800000000000000
+      internalID: 1121863286607647062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_13
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 5
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50dd03e625bb2400800000000000000
+      internalID: 300532978772987995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flame_wheel_clear_14
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 2
+        width: 80
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d1e2f7e6f4d2b40800000000000000
+      internalID: 5417073262795300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
