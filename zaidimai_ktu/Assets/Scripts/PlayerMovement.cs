@@ -269,5 +269,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coll.tag == "PowerUp")
             score++;
+        else if (coll.tag == "Level" && coll.name == "Death_Teleport")
+            transform.position = Vector3.zero;
+
     }
 }
