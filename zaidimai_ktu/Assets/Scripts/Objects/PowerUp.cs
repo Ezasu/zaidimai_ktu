@@ -10,6 +10,8 @@ public class PowerUp : MonoBehaviour
     [Range(0, 20)]
     public float MaximumBounce = 1f;
 
+    public bool NotMoving;
+
     public AudioClip sound;
     public AudioSource source;
 
@@ -32,11 +34,14 @@ public class PowerUp : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        gameObject.transform.Rotate(0, 0, 1);
-        currentPos += BouncingDelta * bounceDirection;
-        if (Mathf.Abs(startPos - currentPos) > MaximumBounce)
+        if (!NotMoving)
         {
-            bounceDirection *= -1;
+            gameObject.transform.Rotate(0, 0, 1);
+            currentPos += BouncingDelta * bounceDirection;
+            if (Mathf.Abs(startPos - currentPos) > MaximumBounce)
+            {
+                bounceDirection *= -1;
+            }
         }
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.y);
     }
