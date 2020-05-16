@@ -18372,7 +18372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36240fd4d5d78e7459078394f736d1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropdown: {fileID: 1270975984}
+  Dropdown: {fileID: 1270975986}
   strenght: 0
 --- !u!4 &376120614
 Transform:
