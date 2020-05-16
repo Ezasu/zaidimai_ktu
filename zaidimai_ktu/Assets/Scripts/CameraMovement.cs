@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour
     float yPosition; //kameros y pozicija
     float fingerPressedY; // y koordinate, kur pirstas prisiliete prie ekrano
     
-    [Range(1f, 10f)]
-    public float strenght = 5f;
+    [Range(0f, 10f)]
+    public float strenght = 1f;
 
     [Range(0, 0.5f)]
     public float returnSpeed = 0.4f;
