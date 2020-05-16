@@ -67,7 +67,14 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 500)]
     public float SlipperyPlatformSlipperiness = 200f;
 
+    int HP 
+    {
+        get { return Health; }
+        set { Health = value; UpdateHealth(Health); }
+    }
 
+    [Range(0, 100)]
+    public int Health = 100;
 
     public float groundCheckRate = 0.0125f;
 
@@ -78,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float heightOffset = 0.25f;
 
+    public Transform HealthBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,12 +94,19 @@ public class PlayerMovement : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         score = 0;
 
+        if (HealthBar is null || HealthBar.ToString() == "null")
+            HealthBar = GameObject.Find("Bar").transform;
         //InvokeRepeating("GroundCheck", 0, groundCheckRate);
     }
 
     private void OnGUI()
     {
-        playerScoreString = GUI.TextField(new Rect(10, 10, 200, 40), $"Score: {score}", 25);
+        playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
+    }
+
+    void UpdateHealth(int newHealth)
+    {
+        HealthBar.localScale = new Vector3(newHealth / 100f, 1f);
     }
 
     void Update()
@@ -108,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
         //    else
         //        anim.SetBool("FacingLeft", false);
         //}
-
         
     }
 
@@ -140,63 +155,6 @@ public class PlayerMovement : MonoBehaviour
             onGround = false;
 
         walking = Mathf.Abs(rb.velocity.x) >= animationRequiredWalkingSpeed;
-
-
-        {
-            //if (!onGround)
-            //{
-            //    anim.SetBool("JumpingUp", rb.velocity.y > 0);
-
-            //}
-
-
-            //return;
-            //if (Input.touchCount == 1)
-            //{
-            //    var touch = Input.GetTouch(0);
-            //    float newScrollSpeedX = touch.deltaPosition.x / touch.deltaTime * SpeedMultiplier * (-1);
-            //    float newScrollSpeedY = touch.deltaPosition.y / touch.deltaTime * SpeedMultiplier * (-1);
-
-            //    if (newScrollSpeedX != 0)
-            //    //if (Mathf.Abs(newScrollSpeedX) > MinimumScrollSpeedToMovePlayer)
-            //    {
-            //        var newDirection = (newScrollSpeedX > 0 ? 1 : -1);
-            //        if (newDirection != directionX && Mathf.Abs(rb.velocity.y) > 1) 
-            //        { // jei scroll kryptis pakeista ir player juda (velocity > 1)
-            //            scrollSpeedX *= 1.5f;
-            //        }
-            //        else
-            //        {
-            //            directionX = newDirection;//newScrollSpeedX > 0 ? 1 : -1;
-            //            if (Mathf.Abs(scrollSpeedX + newScrollSpeedX) > MaxSpeed)
-            //                scrollSpeedX = MaxSpeed * directionX;
-            //            else
-            //                scrollSpeedX = newScrollSpeedX;
-            //        }
-
-            //    }
-            //    else
-            //        scrollSpeedX = 0;
-            //    if (Mathf.Abs(newScrollSpeedY) > MinimumScrollSpeedToMovePlayer)
-            //    {
-            //        directionY = newScrollSpeedY > 0 ? 1 : -1;
-            //        if (Mathf.Abs(scrollSpeedY + newScrollSpeedY) > MaxSpeed)
-            //            scrollSpeedY = MaxSpeed * directionY;
-            //        else
-            //            scrollSpeedY = newScrollSpeedY; 
-            //    }
-            //    else
-            //        scrollSpeedY = 0;
-            //    rb.AddForce(new Vector2(scrollSpeedX * 10, scrollSpeedY * 17));
-            //}
-            ////if (Mathf.Abs(rb.velocity.x) > MaxSpeed)
-            ////{
-            ////    rb.velocity = new Vector2(Mathf.Sign(rb.velocity.x) * MaxSpeed, rb.velocity.y);
-            ////}
-
-            //if (transform.position.y < -2)
-            //    transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-        }
     }
 
     //private void OnCollisionEnter2D(Collision2D coll)
@@ -272,7 +230,12 @@ public class PlayerMovement : MonoBehaviour
         if (coll.tag == "PowerUp")
             score++;
         else if (coll.tag == "Level" && coll.name == "Death_Teleport")
+        {
             transform.position = Vector3.zero;
+            HP /= 2;
+        }
+            
 
+           
     }
 }
