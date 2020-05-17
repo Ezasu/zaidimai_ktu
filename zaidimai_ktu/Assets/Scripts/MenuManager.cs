@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Globalization;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-
-    public Dropdown Dropdown;
+    public TMPro.TMP_Dropdown Dropdown;
 
     [Range(0f, 10f)]
     public float strenght = 1f;
@@ -13,9 +13,9 @@ public class MenuManager : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Start");
-        if ((Dropdown.options[Dropdown.value].text) == "Karolis Level")
+        if ((Dropdown.options[Dropdown.value].text) == "KAROLIS LEVEL")
             SceneManager.LoadScene("KarolisScene");
-        if ((Dropdown.options[Dropdown.value].text) == "Kajus Level")
+        if ((Dropdown.options[Dropdown.value].text) == "KAJUS LEVEL")
             SceneManager.LoadScene("KajusScene");
     }
 
