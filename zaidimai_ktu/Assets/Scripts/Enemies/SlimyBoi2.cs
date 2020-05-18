@@ -97,7 +97,6 @@ public class SlimyBoi2 : MonoBehaviour
     void AttackPlayer()
     {
         collisionSound.Play();
-        Debug.Log("Kerta");
         var direction = Player.transform.position - transform.position;
         PlayerScript.TakeDamage(10, direction);
         anim.SetBool("Attacking", true);
