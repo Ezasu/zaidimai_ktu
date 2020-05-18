@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             display.text = "You won!";
         else
             display.text = "Game over!";
-        gameOverScore.text = $"Your score: {score}\n Time taken: {seconds}";
+        gameOverScore.text = $"Your score: {score}\nTime taken: {seconds}\nEnemies killed: {enemiesKilled}";
         ingameScore.text = $"Your score: {score}";
         //playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
     }
