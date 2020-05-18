@@ -121,6 +121,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (HP != 0)
             display.text = "You won!";
+        else
+            display.text = "Game over!";
         gameOverScore.text = $"Your score: {score}\n Time taken: {seconds}";
         ingameScore.text = $"Your score: {score}";
         //playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
@@ -130,7 +132,8 @@ public class PlayerMovement : MonoBehaviour
     {
         HealthBar.localScale = new Vector3(newHealth / 100f, 1f);
     }
-    
+
+    bool Finished = false;
 
     void Update()
     {
@@ -141,13 +144,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("OnGround", onGround);
         anim.SetBool("Walking", walking);
         timer += Time.deltaTime;
-        if (HP != 0)
+        if (HP != 0 && !Finished)
             seconds = (int)(Math.Round(timer % 60, 1));
-        if (HP == 0)
+        if (HP == 0 || Finished)
         {
-            
             FindObjectOfType<MenuManager>().GameOver();
-
         }
         //if (Input.touchCount > 0)
         //{
@@ -274,9 +275,12 @@ public class PlayerMovement : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Level" && coll.name == "Finish Flag")
+        {
             score += 100;
+            Finished = true;
+        }
         if (coll.tag == "PowerUp")
-            score++;
+            score += 10;
         else if (coll.tag == "Level" && coll.name == "Death_Teleport")
         {
             //transform.position = Vector3.zero;
