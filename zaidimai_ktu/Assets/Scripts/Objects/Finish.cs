@@ -41,9 +41,13 @@ public class Finish : MonoBehaviour
     {
         if (coll.tag == "Player")
         {
+            currentPos = -100;
             firework.GetComponent<ParticleSystem>().enableEmission = true;
-            Destroy(gameObject);
-            Invoke("RemoveObject", 0);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.y);
+            //Destroy(gameObject);
+            source.Play();
+            
+            Invoke("RemoveObject", 10);
         }
 
     }
