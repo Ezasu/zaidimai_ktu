@@ -111,6 +111,7 @@ public class SlimyBoi : MonoBehaviour
             dead = true;
             anim.SetBool("Dying", true);
             Destroy(gameObject, 1f);
+            playerScript.enemiesKilled++;
         }
             
     }
