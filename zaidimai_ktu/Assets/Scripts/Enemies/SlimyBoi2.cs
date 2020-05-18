@@ -26,7 +26,8 @@ public class SlimyBoi2 : MonoBehaviour
 
     public bool AvoidFallingDown = true;
 
-    //Vector2 LeftEdge = new Vector2(coll.bounds.min.x, )
+    Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
+    Vector2 RightEdge => new Vector2(coll.bounds.max.x + 1, coll.bounds.min.y);
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -47,11 +48,11 @@ public class SlimyBoi2 : MonoBehaviour
         if (distanceToPlayer <= VisibleDistance && distanceToPlayer > 4.75f)
         {
 
-            anim.SetBool("Moving", true);
+            
         }
         else
         {
-            if (distanceToPlayer < 4f && PlayerScript.onGround)
+            if (distanceToPlayer < 4.5f && PlayerScript.onGround)
             {
                 AttackPlayer();
             }
@@ -61,12 +62,17 @@ public class SlimyBoi2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        //Physics2D.Raycast(coll.bounds.min, Vector2.down)
         float distanceToPlayer = Mathf.Abs(Player.transform.position.x - transform.position.x);
-        if (distanceToPlayer > VisibleDistance || distanceToPlayer < 4f)
+        if (distanceToPlayer > VisibleDistance || distanceToPlayer < 4.25f)
             return;
         bool playerToTheRight = transform.position.x < Player.transform.position.x;
+
+        if (playerToTheRight && !Physics2D.Raycast(RightEdge, Vector2.down) || !playerToTheRight && !Physics2D.Raycast(LeftEdge, Vector2.down))
+        {
+            anim.SetBool("Moving", false);
+            return;
+        }
+        anim.SetBool("Moving", true);
 
         spriteRenderer.flipX = playerToTheRight;
         transform.position += new Vector3(WalkingSpeed * (playerToTheRight ? 1 : -1), 0);

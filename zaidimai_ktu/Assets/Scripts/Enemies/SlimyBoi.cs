@@ -35,6 +35,8 @@ public class SlimyBoi : MonoBehaviour
 
     bool dead;
 
+    Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
+    Vector2 RightEdge => new Vector2(coll.bounds.max.x + 1, coll.bounds.min.y);
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -61,7 +63,7 @@ public class SlimyBoi : MonoBehaviour
             anim.SetBool("Moving", false);
             return;
         }
-        anim.SetBool("Moving", true);
+        //anim.SetBool("Moving", true);
                 
 
         if (shootingDelayCounter >= ShootingDelay && !dead)
@@ -88,6 +90,13 @@ public class SlimyBoi : MonoBehaviour
     private void FixedUpdate()
     {
         bool playerToTheRight = transform.position.x < Player.transform.position.x;
+
+        if (playerToTheRight && !Physics2D.Raycast(RightEdge, Vector2.down) || !playerToTheRight && !Physics2D.Raycast(LeftEdge, Vector2.down))
+        {
+            anim.SetBool("Moving", false);
+            return;
+        }
+        anim.SetBool("Moving", true);
 
         spriteRenderer.flipX = playerToTheRight;
         //rb.velocity += new Vector2(WalkingSpeed * (playerToTheRight ? -1 : 1), 0);
