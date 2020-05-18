@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -100,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
     public TMPro.TMP_Text ingameScore;
     public TMPro.TMP_Text gameOverScore;
+    public TMPro.TMP_Text display;
 
 
     Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
@@ -119,10 +121,13 @@ public class PlayerMovement : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(9, 9);
     }
-
+    float timer = 0.0f;
+    int seconds;
     private void OnGUI()
     {
-        gameOverScore.text = $"Your high score: {score}";
+        if (HP != 0)
+            display.text = "You won!";
+        gameOverScore.text = $"Your score: {score}\n Time taken: {seconds}";
         ingameScore.text = $"Your score: {score}";
         //playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
     }
@@ -131,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HealthBar.localScale = new Vector3(newHealth / 100f, 1f);
     }
+    
 
     void Update()
     {
@@ -140,9 +146,12 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("JumpingUp", ascending);
         anim.SetBool("OnGround", onGround);
         anim.SetBool("Walking", walking);
-
+        timer += Time.deltaTime;
+        if (HP != 0)
+            seconds = (int)(Math.Round(timer % 60, 1));
         if (HP == 0)
         {
+            
             FindObjectOfType<MenuManager>().GameOver();
             gameObject.SetActive(false);
         }
