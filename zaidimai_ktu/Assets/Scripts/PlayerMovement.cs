@@ -155,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
         if (HP == 0 || Finished)
         {
             FindObjectOfType<MenuManager>().GameOver();
-            gameObject.SetActive(false);
         }
         //if (Input.touchCount > 0)
         //{
