@@ -156,7 +156,8 @@ public class PlayerMovement : MonoBehaviour
         if (HP == 0 || Finished)
         {
             FindObjectOfType<MenuManager>().GameOver();
-            gameObject.SetActive(false);
+            transform.position = new Vector3(transform.position.x, -99999999999);
+            //gameObject.SetActive(false);
         }
         //if (Input.touchCount > 0)
         //{
