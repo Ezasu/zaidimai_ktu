@@ -98,6 +98,7 @@ public class SlimyBoi : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == "Player")
         {
+            playerScript.DamagedEnemy();
             dead = true;
             anim.SetBool("Dying", true);
             Destroy(gameObject, 1f);

@@ -43,7 +43,8 @@ public class PlayerMovement : MonoBehaviour
     public string playerScoreString = "Score: 0";
     int score;
 
-    bool onGround, ascending, facingLeft, walking,
+    public bool onGround;
+    bool ascending, facingLeft, walking,
         onSlipperyPlatform;
 
     Buffer lastVelocity = new Buffer(5);
@@ -72,7 +73,13 @@ public class PlayerMovement : MonoBehaviour
     int HP 
     {
         get { return Health; }
-        set { Health = value; UpdateHealth(Health); }
+        set 
+        {
+            if (value < 0)
+                value = 0;
+            Health = value; 
+            UpdateHealth(Health); 
+        }
     }
 
     [Range(0, 100)]
@@ -220,11 +227,11 @@ public class PlayerMovement : MonoBehaviour
                 break;
 
             case "Enemy":
-                if (obj.name.Contains("SlimyBoi"))
+                /*if (obj.name.Contains("SlimyBoi"))
                 {
                     HP += 7;
                 }
-                else
+                else*/ if (obj.name.Contains("Beam"))
                 {
                     HP -= 20;
                     rb.velocity -= ((collision.GetContact(0).point - (Vector2)transform.position)).normalized * 25f;
@@ -260,6 +267,22 @@ public class PlayerMovement : MonoBehaviour
             HP = 0;
             //FindObjectOfType<MenuManager>().GameOver();
         }
+    }
+
+    public void TakeDamage(int damage, Vector3? collisionDirection = null)
+    {
+        if (collisionDirection != null)
+        {
+            //rb.AddForce(((Vector2)collisionDirection).normalized * 250f);
+            rb.AddForce(new Vector2(collisionDirection.Value.normalized.x, 0.5f) * 1500f);
+        }
+        HP -= damage;
+    }
+
+    public void DamagedEnemy()
+    {
+        rb.AddForce(Vector2.up * 500f);
+        score++;
     }
 
     public Vector3 ApproxTrajectory()
