@@ -52,7 +52,7 @@ public class SlimyBoi2 : MonoBehaviour
         }
         else
         {
-            if (distanceToPlayer < 4.5f && PlayerScript.onGround)
+            if (distanceToPlayer < 4.5f && PlayerScript.onGround && (Mathf.Abs(Player.transform.position.y - transform.position.y) < 2f))
             {
                 AttackPlayer();
             }
@@ -122,7 +122,7 @@ public class SlimyBoi2 : MonoBehaviour
                 Invoke("NotTakingDamage", 1f);
                 anim.SetBool("Attacking", false);
             }
-            else
+            else 
             {
                 AttackPlayer();
             }

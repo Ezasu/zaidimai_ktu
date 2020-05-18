@@ -45,7 +45,11 @@ public class PlayerMovement : MonoBehaviour
 
     public string playerScoreString = "Score: 0";
     int score;
+    float speedBoost = 0;
     public int enemiesKilled = 0;
+    [Range(0, 10)]
+    public float SpeedBoostDuration = 0.5f;
+    public float SpeedBoostIncrease = 5f;
 
     public bool onGround;
     bool ascending, facingLeft, walking,
@@ -174,8 +178,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.touchCount == 1)
         {
+            float speedBoosted = speedBoost > 0 ? SpeedBoostIncrease : 1;
             var touch = Input.GetTouch(0);
-            rb.AddForce(touch.deltaPosition * -1 * SpeedMultiplier);
+            rb.AddForce(touch.deltaPosition * -1 * SpeedMultiplier * speedBoosted);
 
             if (touch.deltaPosition.x != 0)
                 facingLeft = touch.deltaPosition.x > 0;
@@ -187,6 +192,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity *= 1 - (slowDown);
         }
 
+        if (speedBoost > 0)
+        {
+            speedBoost -= Time.deltaTime;
+        }
 
         ascending = rb.velocity.y > 0;
 
@@ -249,7 +258,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (obj.name.StartsWith("Bouncy"))
                 {
-                    rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
+                    Vector2 lastvel = lastVelocity.LastValue();
+                    //rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
+                    rb.velocity = new Vector2(lastvel.x * -1, lastvel.y) * -1 * BouncyPlatformBounciness;
                 }
                 break;
 
@@ -297,6 +308,16 @@ public class PlayerMovement : MonoBehaviour
             HP = 0;
             //FindObjectOfType<MenuManager>().GameOver();
         }
+
+        if (coll.tag == "PowerUp" && coll.gameObject.name.ToLower().Contains("power_up"))
+        {
+            SpeedBoosted();
+        }
+    }
+
+    public void SpeedBoosted()
+    {
+        speedBoost = SpeedBoostDuration;
     }
 
     public void TakeDamage(int damage, Vector3? collisionDirection = null)

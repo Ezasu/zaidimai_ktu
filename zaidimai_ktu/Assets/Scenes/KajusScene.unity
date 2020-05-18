@@ -12015,7 +12015,7 @@ GameObject:
   - component: {fileID: 184715717}
   - component: {fileID: 184715716}
   m_Layer: 8
-  m_Name: power_up (4)
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12340,7 +12340,7 @@ GameObject:
   - component: {fileID: 199398997}
   - component: {fileID: 199398996}
   m_Layer: 8
-  m_Name: power_up (1)
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22543,7 +22543,7 @@ GameObject:
   - component: {fileID: 343308606}
   - component: {fileID: 343308605}
   m_Layer: 8
-  m_Name: power_up (6)
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36840,6 +36840,7 @@ MonoBehaviour:
   anim: {fileID: 629464464}
   playerScoreString: 'Score: 0'
   enemiesKilled: 0
+  SpeedBoostDuration: 100
   onGround: 0
   MaxSpeed: 7.5
   SpeedMultiplier: 1.2
@@ -36963,7 +36964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629464463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 824, y: 40.41, z: 0}
+  m_LocalPosition: {x: 0, y: 28, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 716974293}
@@ -64010,7 +64011,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456086333}
   m_LocalRotation: {x: -0, y: -0, z: 0.6755903, w: -0.7372773}
-  m_LocalPosition: {x: 31.73, y: 8.130001, z: 8.18}
+  m_LocalPosition: {x: 1.26, y: 8.92, z: 8.18}
   m_LocalScale: {x: 0.44799998, y: 0.496, z: 1}
   m_Children:
   - {fileID: 1055324644}
@@ -65301,7 +65302,7 @@ GameObject:
   - component: {fileID: 1582571697}
   - component: {fileID: 1582571696}
   m_Layer: 8
-  m_Name: power_up (5)
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66431,7 +66432,7 @@ GameObject:
   - component: {fileID: 1666563012}
   - component: {fileID: 1666563011}
   m_Layer: 8
-  m_Name: power_up (3)
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90463,7 +90464,7 @@ GameObject:
   - component: {fileID: 2111192029}
   - component: {fileID: 2111192028}
   m_Layer: 8
-  m_Name: power_up
+  m_Name: Coin
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
