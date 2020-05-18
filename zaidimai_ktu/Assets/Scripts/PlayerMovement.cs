@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    BoxCollider2D coll;
     Rigidbody2D rb;
     public Animator anim;
 
@@ -102,9 +103,14 @@ public class PlayerMovement : MonoBehaviour
     public TMPro.TMP_Text gameOverScore;
     public TMPro.TMP_Text display;
 
+
+    Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
+    Vector2 RightEdge => new Vector2(coll.bounds.max.x + 1, coll.bounds.min.y);
+
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         score = 0;
@@ -149,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         if (HP == 0 || Finished)
         {
             FindObjectOfType<MenuManager>().GameOver();
+            gameObject.SetActive(false);
         }
         //if (Input.touchCount > 0)
         //{
@@ -185,8 +192,8 @@ public class PlayerMovement : MonoBehaviour
 
         lastVelocity.Push(rb.velocity);
 
-        if (lastVelocity.Bufferis.Select(e => e.y).All(e => e == 0))
-            onGround = false;
+        //if (lastVelocity.Bufferis.Select(e => e.y).All(e => e == 0))
+        //    onGround = false;
 
         walking = Mathf.Abs(rb.velocity.x) >= animationRequiredWalkingSpeed;
     }
@@ -208,7 +215,8 @@ public class PlayerMovement : MonoBehaviour
         //    return false;
         //return true;
         bool grounded;
-        if (Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y + heightOffset, transform.position.z), Vector2.down, groundHeight + heightOffset, groundLayer))
+        if (Physics2D.Raycast(new Vector3(/*transform.position.x*/LeftEdge.x, /*transform.position.y*/LeftEdge.y + heightOffset, transform.position.z), Vector2.down, groundHeight + heightOffset, groundLayer)
+            || Physics2D.Raycast(new Vector3(RightEdge.x, RightEdge.y + heightOffset, transform.position.z), Vector2.down, groundHeight + heightOffset, groundLayer))
             grounded = true;
         else
             grounded = false;
@@ -301,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DamagedEnemy()
     {
-        rb.AddForce(Vector2.up * 500f);
+        rb.AddForce(Vector2.up * 800f);
         score++;
     }
 
