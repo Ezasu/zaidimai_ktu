@@ -24,6 +24,9 @@ public class SlimyBoi2 : MonoBehaviour
     public GameObject Player;
     public PlayerMovement PlayerScript;
 
+    public AudioSource collisionSound;
+    public AudioSource damagedByPlayer;
+
     public bool AvoidFallingDown = true;
 
     Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
@@ -80,6 +83,7 @@ public class SlimyBoi2 : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+        damagedByPlayer.Play();
         Health -= damage;
         if (Health <= 0)
         {
@@ -92,6 +96,8 @@ public class SlimyBoi2 : MonoBehaviour
 
     void AttackPlayer()
     {
+        collisionSound.Play();
+        Debug.Log("Kerta");
         var direction = Player.transform.position - transform.position;
         PlayerScript.TakeDamage(10, direction);
         anim.SetBool("Attacking", true);

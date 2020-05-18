@@ -8,6 +8,7 @@ public class Beam : MonoBehaviour
     //Rigidbody2D rb;
     public Vector3 direction = Vector3.zero;
     public float FiringSpeed = 100;
+    public AudioSource hitPlayer;
     SpriteRenderer spriteRenderer;
     void Start()
     {
@@ -33,6 +34,8 @@ public class Beam : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Player")
+            hitPlayer.Play();
         Destroy(gameObject);
     }
 }

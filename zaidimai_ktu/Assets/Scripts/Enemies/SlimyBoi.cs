@@ -20,6 +20,9 @@ public class SlimyBoi : MonoBehaviour
     public GameObject Player;
     public PlayerMovement playerScript;
 
+    public AudioSource shootSound;
+    public AudioSource damagedByPlayer;
+
     [Range(0, 0.1f)]
     public float WalkingSpeed = 5f;
 
@@ -68,6 +71,7 @@ public class SlimyBoi : MonoBehaviour
 
         if (shootingDelayCounter >= ShootingDelay && !dead)
         {
+            shootSound.Play();
             shootingDelayCounter = 0;  
             Vector3 target = (Predicting) ? Player.transform.position + (playerScript.ApproxTrajectory())/*.normalized*/ * PredictionMagnitude : Player.transform.position;
 
@@ -107,6 +111,7 @@ public class SlimyBoi : MonoBehaviour
     {
         if (collision.collider.gameObject.tag == "Player")
         {
+            damagedByPlayer.Play();
             playerScript.DamagedEnemy();
             dead = true;
             anim.SetBool("Dying", true);

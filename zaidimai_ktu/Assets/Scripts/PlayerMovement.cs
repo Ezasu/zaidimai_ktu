@@ -107,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform HealthBar;
 
+    public Image powerupIcon;
+
     public TMPro.TMP_Text ingameScore;
     public TMPro.TMP_Text gameOverScore;
     public TMPro.TMP_Text display;
@@ -126,8 +128,9 @@ public class PlayerMovement : MonoBehaviour
         if (HealthBar is null || HealthBar.ToString() == "null")
             HealthBar = GameObject.Find("Bar").transform;
         //InvokeRepeating("GroundCheck", 0, groundCheckRate);
-
+        powerupIcon.color = new Color(255, 255, 255, 0);
         Physics2D.IgnoreLayerCollision(9, 9);
+
     }
     float timer = 0.0f;
     int seconds;
@@ -198,6 +201,14 @@ public class PlayerMovement : MonoBehaviour
         if (speedBoost > 0)
         {
             speedBoost -= Time.deltaTime;
+
+            var tempColor = powerupIcon.color;
+            tempColor.a = (int)(speedBoost / SpeedBoostIncrease * 2 * 255f);
+            powerupIcon.color = tempColor;
+
+            //Color tmp = powerupIcon.GetComponent<SpriteRenderer>().color;
+            //tmp.a = speedBoost / SpeedBoostIncrease * 2 * 255f;
+            //powerupIcon.GetComponent<SpriteRenderer>().color = tmp;
         }
 
         ascending = rb.velocity.y > 0;
