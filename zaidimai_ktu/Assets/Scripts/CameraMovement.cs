@@ -14,6 +14,9 @@ public class CameraMovement : MonoBehaviour
     [Range(0f, 10f)]
     public float strenght = 1f;
 
+    [Range(0f, 10f)]
+    public float boostUp = 0f;
+
     [Range(0, 0.5f)]
     public float returnSpeed = 0.4f;
 
@@ -29,6 +32,11 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
 
+    }
+
+    public void OptionMove(int input)
+    {
+        boostUp = input;
     }
 
     // Update is called once per frame
@@ -58,6 +66,6 @@ public class CameraMovement : MonoBehaviour
         }
         var skirtumas = gameObject.transform.position.y - desiredPos;
         var pokytis = gameObject.transform.position.y - (skirtumas * 0.1f);
-        gameObject.transform.position = new Vector3(Player.transform.position.x, pokytis + 0.5f, - 10);
+        gameObject.transform.position = new Vector3(Player.transform.position.x, pokytis + 0.5f + boostUp, - 10);
     }
 }
