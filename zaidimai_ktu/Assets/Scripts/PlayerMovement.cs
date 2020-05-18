@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     public string playerScoreString = "Score: 0";
     int score;
+    public int enemiesKilled = 0;
 
     public bool onGround;
     bool ascending, facingLeft, walking,
