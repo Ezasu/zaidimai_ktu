@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
 
     public Button setOver;
 
+    public AudioSource deathSound;
+
     bool gameEnded = false;
 
     public void StartGame()
@@ -31,6 +33,7 @@ public class MenuManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("Death");
             gameEnded = true;
+            deathSound.Play();
             setOver.onClick.Invoke();
             //otherObject.GetComponent<GrayScale>().enabled = false;
             //Invoke("RestartGame", 2f);

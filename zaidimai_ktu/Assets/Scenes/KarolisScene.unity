@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 197075515}
   - component: {fileID: 197075514}
   m_Layer: 8
-  m_Name: power_up coin 2
+  m_Name: coin 2
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20330,7 +20330,7 @@ GameObject:
   - component: {fileID: 411616910}
   - component: {fileID: 411616909}
   m_Layer: 8
-  m_Name: power_up coin 1
+  m_Name: coin 1
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35468,7 +35468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505787404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 299.1, y: 7.6, z: 0}
+  m_LocalPosition: {x: 268.5, y: -18.9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 401277226}
@@ -35491,6 +35491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 505787410}
   playerScoreString: 'Score: 0'
+  enemiesKilled: 0
   onGround: 0
   MaxSpeed: 7.5
   SpeedMultiplier: 1.2
@@ -35498,6 +35499,8 @@ MonoBehaviour:
   animationRequiredWalkingSpeed: 0.7
   BouncyPlatformBounciness: 3.5
   SlipperyPlatformSlipperiness: 200
+  landSound: {fileID: 1093670419}
+  landOnBouncySound: {fileID: 725575794}
   Health: 100
   groundCheckRate: 1
   groundLayer:
@@ -42018,7 +42021,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -107337,7 +107340,7 @@ GameObject:
   - component: {fileID: 1836248255}
   - component: {fileID: 1836248254}
   m_Layer: 8
-  m_Name: power_up coin 3
+  m_Name: coin 3
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124882,6 +124885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dropdown: {fileID: 0}
   setOver: {fileID: 1038955082}
+  deathSound: {fileID: 1376988561}
 --- !u!4 &2146179640
 Transform:
   m_ObjectHideFlags: 0

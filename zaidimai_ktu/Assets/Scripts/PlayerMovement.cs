@@ -74,6 +74,9 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 500)]
     public float SlipperyPlatformSlipperiness = 200f;
 
+    public AudioSource landSound;
+    public AudioSource landOnBouncySound;
+
     int HP 
     {
         get { return Health; }
@@ -210,6 +213,13 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
+    IEnumerator playAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(0f);
+        if(landSound != null)
+            landSound.Play();
+    }
+
     void GroundCheck()
     {
         //var ray = Physics2D.Raycast(transform.position, Vector2.down, DistanceToGround + 1.5f);
@@ -228,6 +238,11 @@ public class PlayerMovement : MonoBehaviour
             //anim.SetBool("OnGround", grounded);
             //if (!grounded)
             //    anim.SetBool("JumpingUp", true);
+            //if (grounded) // NUSILEIDO
+            //{
+            //    hit.collider.gameObject.name;
+            //    StartCoroutine(playAfterDelay());
+            //}
             onGround = grounded;
         }
 
@@ -246,10 +261,16 @@ public class PlayerMovement : MonoBehaviour
                 if (obj.name.StartsWith("Slippery"))
                 {
                     onSlipperyPlatform = true;
+                    StartCoroutine(playAfterDelay());
+                }
+                else if (obj.name.StartsWith("Grass"))
+                {
+                    StartCoroutine(playAfterDelay());
                 }
                 else if (obj.name.StartsWith("Bouncy"))
                 {
                     rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
+                    landOnBouncySound.Play();
                 }
                 break;
 
