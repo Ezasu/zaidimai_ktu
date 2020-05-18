@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -89,6 +90,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform HealthBar;
 
+    public TMPro.TMP_Text ingameScore;
+    public TMPro.TMP_Text gameOverScore;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,7 +109,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnGUI()
     {
-        playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
+        gameOverScore.text = $"Your high score: {score}";
+        ingameScore.text = $"Your score: {score}";
+        //playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
     }
 
     void UpdateHealth(int newHealth)
