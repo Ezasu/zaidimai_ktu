@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     {
         public Vector2[] Bufferis;
         int Current;
+        public bool IsFull => Bufferis.Any(e => e != Vector2.zero); 
 
         public Buffer(int size)
         {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         onSlipperyPlatform;
 
     Buffer lastVelocity = new Buffer(5);
+    Buffer lastPositions = new Buffer(20);
 
     int directionX, directionY;
 
@@ -97,6 +99,8 @@ public class PlayerMovement : MonoBehaviour
         if (HealthBar is null || HealthBar.ToString() == "null")
             HealthBar = GameObject.Find("Bar").transform;
         //InvokeRepeating("GroundCheck", 0, groundCheckRate);
+
+        Physics2D.IgnoreLayerCollision(9, 9);
     }
 
     private void OnGUI()
@@ -148,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
         ascending = rb.velocity.y > 0;
 
+        lastPositions.Push(rb.position);
 
         lastVelocity.Push(rb.velocity);
 
@@ -196,16 +201,31 @@ public class PlayerMovement : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         var obj = collision.collider.gameObject;
-        if (obj.tag == "Level")
+        switch (obj.tag)
         {
-            if (obj.name.StartsWith("Slippery"))
-            {
-                onSlipperyPlatform = true;
-            }
-            else if (obj.name.StartsWith("Bouncy"))
-            {
-                rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
-            }
+            case "Level":
+                if (obj.name.StartsWith("Slippery"))
+                {
+                    onSlipperyPlatform = true;
+                }
+                else if (obj.name.StartsWith("Bouncy"))
+                {
+                    rb.velocity = lastVelocity.LastValue() * -1 * BouncyPlatformBounciness;
+                }
+                break;
+
+            case "Enemy":
+                if (obj.name.Contains("SlimyBoi"))
+                {
+                    HP += 7;
+                }
+                else
+                {
+                    HP -= 20;
+                    rb.velocity -= ((collision.GetContact(0).point - (Vector2)transform.position)).normalized * 25f;
+                } 
+                   
+                break;
         }
     }
 
@@ -234,8 +254,11 @@ public class PlayerMovement : MonoBehaviour
             transform.position = Vector3.zero;
             HP /= 2;
         }
-            
+    }
 
-           
+    public Vector3 ApproxTrajectory()
+    {
+        //var debug = rb.position - lastPositions.LastValue();
+        return rb.position - lastPositions.LastValue();
     }
 }
