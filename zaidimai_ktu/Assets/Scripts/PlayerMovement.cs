@@ -121,6 +121,11 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("JumpingUp", ascending);
         anim.SetBool("OnGround", onGround);
         anim.SetBool("Walking", walking);
+
+        if (HP == 0)
+        {
+            FindObjectOfType<MenuManager>().GameOver();
+        }
         //if (Input.touchCount > 0)
         //{
         //    if (Input.GetTouch(0).deltaPosition.x >= 0)
@@ -128,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         //    else
         //        anim.SetBool("FacingLeft", false);
         //}
-        
+
     }
 
     // Update is called once per frame
@@ -251,9 +256,9 @@ public class PlayerMovement : MonoBehaviour
             score++;
         else if (coll.tag == "Level" && coll.name == "Death_Teleport")
         {
-            transform.position = Vector3.zero;
-            HP /= 2;
-            FindObjectOfType<MenuManager>().GameOver();
+            //transform.position = Vector3.zero;
+            HP = 0;
+            //FindObjectOfType<MenuManager>().GameOver();
         }
     }
 
