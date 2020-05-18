@@ -21620,7 +21620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Dropdown: {fileID: 1752551738}
-  strenght: 0
+  setOver: {fileID: 0}
 --- !u!4 &376120614
 Transform:
   m_ObjectHideFlags: 0
@@ -84027,7 +84027,7 @@ GameObject:
   - component: {fileID: 1567997622}
   - component: {fileID: 1567997621}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

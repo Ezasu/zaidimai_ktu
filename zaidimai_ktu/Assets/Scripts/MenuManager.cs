@@ -8,22 +8,43 @@ public class MenuManager : MonoBehaviour
 {
     public TMPro.TMP_Dropdown Dropdown;
 
-    [Range(0f, 10f)]
-    public float strenght = 1f;
+    public Button setOver;
+
+    bool gameEnded = false;
 
     public void StartGame()
     {
         if (Dropdown == null)
             SceneManager.LoadScene("MainMenu");
-        if ((Dropdown.options[Dropdown.value].text) == "KAROLIS LEVEL")
-            SceneManager.LoadScene("KarolisScene");
-        if ((Dropdown.options[Dropdown.value].text) == "KAJUS LEVEL")
-            SceneManager.LoadScene("KajusScene");
+        else
+        {
+            if ((Dropdown.options[Dropdown.value].text) == "KAROLIS LEVEL")
+                SceneManager.LoadScene("KarolisScene");
+            if ((Dropdown.options[Dropdown.value].text) == "KAJUS LEVEL")
+                SceneManager.LoadScene("KajusScene");
+        }
     }
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
+        if (!gameEnded)
+        {
+            UnityEngine.Debug.Log("Death");
+            gameEnded = true;
+            setOver.onClick.Invoke();
+            //otherObject.GetComponent<GrayScale>().enabled = false;
+            //Invoke("RestartGame", 2f);
+        }
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void QuitGame()

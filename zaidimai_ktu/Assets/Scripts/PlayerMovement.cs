@@ -253,6 +253,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position = Vector3.zero;
             HP /= 2;
+            FindObjectOfType<MenuManager>().GameOver();
         }
     }
 
