@@ -137,9 +137,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnGUI()
     {
         if (HP != 0)
-            display.text = "You won!";
+            display.text = "You wonǃ";
         else
-            display.text = "Game over!";
+            display.text = "Game overǃ";
         gameOverScore.text = $"Your score: {score}\nTime taken: {seconds}\nEnemies killed: {enemiesKilled}";
         ingameScore.text = $"Your score: {score}";
         //playerScoreString = GUI.TextField(new Rect(10, 60, 75, 40), $"Score: {score}", 25);
@@ -328,11 +328,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coll.tag == "Level" && coll.name == "Finish Flag")
         {
-            score += 100;
+            score += 1000;
             Finished = true;
         }
         if (coll.tag == "PowerUp")
-            score += 10;
+            score += 500;
         else if (coll.tag == "Level" && coll.name == "Death_Teleport")
         {
             //transform.position = Vector3.zero;
@@ -364,7 +364,7 @@ public class PlayerMovement : MonoBehaviour
     public void DamagedEnemy()
     {
         rb.AddForce(Vector2.up * 800f);
-        score++;
+        score += 100;
     }
 
     public Vector3 ApproxTrajectory()
