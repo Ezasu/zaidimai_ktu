@@ -36,7 +36,7 @@ public class SlimyBoi : MonoBehaviour
     [Range(1, 10)]
     public float PredictionMagnitude = 1.12f;
 
-    bool dead;
+    bool dead, playerIsVisible;
 
     Vector2 LeftEdge => new Vector2(coll.bounds.min.x - 1, coll.bounds.min.y);
     Vector2 RightEdge => new Vector2(coll.bounds.max.x + 1, coll.bounds.min.y);
@@ -63,11 +63,13 @@ public class SlimyBoi : MonoBehaviour
         //if (Vector3.Distance(/*Player.transform.position*/target, transform.position) > VisibleDistance)
         if (distanceToPlayer > VisibleDistance)
         {
+            playerIsVisible = false;
             anim.SetBool("Moving", false);
             return;
         }
         //anim.SetBool("Moving", true);
-                
+        playerIsVisible = true;
+
 
         if (shootingDelayCounter >= ShootingDelay && !dead)
         {
@@ -104,7 +106,8 @@ public class SlimyBoi : MonoBehaviour
 
         spriteRenderer.flipX = playerToTheRight;
         //rb.velocity += new Vector2(WalkingSpeed * (playerToTheRight ? -1 : 1), 0);
-        transform.position += new Vector3(WalkingSpeed * (playerToTheRight ? 1 : -1), 0);
+        if (playerIsVisible)
+            transform.position += new Vector3(WalkingSpeed * (playerToTheRight ? 1 : -1), 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
