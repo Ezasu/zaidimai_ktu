@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KajusScene.unity
     guid: 9956239fc4a7227458298e69cdbc2d35
+  - enabled: 1
+    path: Assets/Scenes/DefenseScene.unity
+    guid: eceb7838adda6704889edc6767967bfb
+  - enabled: 1
+    path: Assets/Scenes/KarolisScene.unity
+    guid: 02af3ff197e813c43918ff1cb95f6896
   m_configObjects: {}
