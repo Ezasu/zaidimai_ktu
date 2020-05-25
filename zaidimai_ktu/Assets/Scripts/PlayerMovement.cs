@@ -80,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource landSound;
     public AudioSource landOnBouncySound;
+    public GameObject Camera;
 
     int HP 
     {
@@ -339,7 +340,11 @@ public class PlayerMovement : MonoBehaviour
             HP = 0;
             //FindObjectOfType<MenuManager>().GameOver();
         }
-
+        if (coll.tag == "Level" && coll.name == "ZoomOut")
+        {
+            CameraMovement cameraScript = Camera.GetComponent<CameraMovement>();
+            cameraScript.ZoomEngaged = true;
+        }
         if (coll.tag == "PowerUp" && coll.gameObject.name.ToLower().Contains("power_up"))
         {
             SpeedBoosted();

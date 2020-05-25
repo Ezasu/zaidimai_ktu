@@ -43,7 +43,7 @@ public class PowerUp : MonoBehaviour
                 bounceDirection *= -1;
             }
         }
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.y);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, currentPos, gameObject.transform.position.z);
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
