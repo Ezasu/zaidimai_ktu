@@ -24,10 +24,10 @@ public class MenuManager : MonoBehaviour
                 SceneManager.LoadScene("KarolisScene");
             if ((Dropdown.options[Dropdown.value].text) == "KAJUS LEVEL")
                 SceneManager.LoadScene("KajusScene");
-            if ((Dropdown.options[Dropdown.value].text) == "DEFENSE LEVEL")
+            if ((Dropdown.options[Dropdown.value].text) == "DFENSE LEVEL")
                 SceneManager.LoadScene("DefenseScene");
             if ((Dropdown.options[Dropdown.value].text) == "ADITIONAL LEVEL")
-                SceneManager.LoadScene("AditionalScene");
+                SceneManager.LoadScene("AditionalLevel");
         }
     }
 
